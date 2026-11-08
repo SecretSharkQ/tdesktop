@@ -7,10 +7,15 @@ on:
       - '**.md'
       - 'lib/xdg/**'
       - 'snap/**'
+      - '.github/**'
       - 'Telegram/Resources/uwp/**'
       - 'Telegram/SourceFiles/platform/linux/**'
       - 'Telegram/SourceFiles/platform/mac/**'
   workflow_dispatch:
+
+concurrency:
+  group: win64-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
 
